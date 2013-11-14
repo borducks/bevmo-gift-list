@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>BevMo Gift List Starter</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+
+	<script type="text/x-handlebars">
+	<h1><a href="/">BevMo Gift List Starter</a></h1>
+	<nav>
+	  {{#link-to 'index'}}Index{{/link-to}}
+	  {{#link-to 'lists'}}Your Gift Lists{{/link-to}}
+	</nav>
+	
+	{{outlet}}
+	</script>
+
+
+<!--
+	Basic index page. Login?
+-->
+	<script type="text/x-handlebars" data-template-name="index">
+	<h3>Welcome to the BevMo Gift List Thing</h3>
+	</script>
+
+
+<!--
+	All user lists menu here
+-->
+	<script type="text/x-handlebars" data-template-name="lists">
+		<h3>Your Gift Lists</h3>
+		
+		<ul>
+		{{#each list in controller}}
+		<li>{{#link-to 'list' list.id}}{{list.name}}{{/link-to}}</li>
+		{{else}}
+		<h4>You have no lists saved. Go make one.</h4>
+		{{/each}}
+		</ul>
+	</script>
+	
+<!--
+	Single List View:: CRUD here
+-->
+	<script type="text/x-handlebars" data-template-name="list">
+		<h3>This is the list called {{name}}</h3>
+		
+		<ul>
+		{{#each list_items}}
+		<li><button {{action 'delete_item' id}}>-</button> {{name}}: ${{price}}</li>
+		{{else}}
+		<h4>You have no items saved. Go get some.</h4>
+		{{/each}}
+		</ul>
+		
+		<p>{{itemCount}} items in your list</p>
+		<p>add item</p>
+	</script>
+	
+	
+	<script src="clientscript/vendor/jquery-1.9.1.min.js"></script>
+	<script src="clientscript/vendor/handlebars-1.0.0.js"></script>
+	<script src="clientscript/vendor/ember-1.1.2.js"></script>
+	<script src="//builds.emberjs.com/tags/v1.0.0-beta.3/ember-data.js"></script>
+	<script src="clientscript/general/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+create-list
+--------------------
+example invocation:
+$.ajax({
+	type: "POST",
+	contentType: "application/json",
+	url: "/Frontend/Secured/WebServices/GiftListService.asmx/CreateList",
+	data: JSON.stringify({ name: "Christmas List" })
+});
+
+Return data:
+{
+	"d":
+	{
+		"__type":"CreateListResult",
+		"list_id":"301b5d20-a662-4a2b-a4f9-320e6eca468d"
+	}
+}
+
+save-list
+--------------------
+example invocation:
+$.ajax({
+	type: "POST",
+	contentType: "application/json",
+	url: "/Frontend/Secured/WebServices/GiftListService.asmx/SaveList",
+	data: JSON.stringify({
+		list_id: "301B5D20-A662-4A2B-A4F9-320E6ECA468D",
+		list_items:
+			[
+				9,10,11
+			],
+	})
+});
+
+Return data:
+{
+	"d":
+		{
+			"__type":"SuccessResult",
+			"success":true
+		}
+}
+
+delete-list
+--------------------
+example invocation:
+$.ajax({
+	type: "POST",
+	contentType: "application/json",
+	url: "/Frontend/Secured/WebServices/GiftListService.asmx/DeleteList",
+	data: JSON.stringify({ list_id: "301B5D20-A662-4A2B-A4F9-320E6ECA468D" })
+});
+
+Return data:
+{
+	"d":
+		{
+			"__type":"SuccessResult",
+			"success":true
+		}
+}
+
+get-list
+--------------------
+example invocation:
+$.ajax({
+	type: "POST",
+	contentType: "application/json",
+	url: "/Frontend/Secured/WebServices/GiftListService.asmx/GetList",
+	data: JSON.stringify({ list_id: "C420C604-A5F6-49DD-B769-7827478C9979" })
+});
+
+Return data:
+{
+   "d":{
+      "__type":"GiftListResult",
+      "list_items":[
+         {
+            "item_id":55071,
+            "name":"Redhook Long Hammer I.P.A.",
+            "price":7.99,
+            "image_url":"94.jpg"
+         },
+         {
+            "item_id":55073,
+            "name":"Redhook E.S.B.",
+            "price":7.99,
+            "image_url":"97.jpg"
+         },
+         {
+            "item_id":55075,
+            "name":"Coors",
+            "price":11.49,
+            "image_url":"101.jpg"
+         }
+      ]
+   }
+}
+
+get-user-lists
+--------------------
+example invocation:
+$.ajax({
+	type: "POST",
+	contentType: "application/json",
+	url: "/Frontend/Secured/WebServices/GiftListService.asmx/GetUserLists"
+});
+
+Return data:
+{
+   "d":{
+      "__type":"UserListsResult",
+      "lists":[
+         {
+            "list_id":"c420c604-a5f6-49dd-b769-7827478c9979",
+            "name":"Christmas List"
+         }
+      ]
+   }
+}
+
+
+
