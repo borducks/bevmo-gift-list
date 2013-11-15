@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>data test</title>
+	<script src="clientscript/vendor/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<h1 id="vanilla_data_query_test_for_rest">vanilla data query test for REST</h1>
+	
+	<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		// test a call to get a list per Kyle spec
+		// target URL is data/requesthandler
+		/*
+			$.ajax({
+				type: "POST",
+				contentType: "application/json",
+				url: "/Frontend/Secured/WebServices/GiftListService.asmx/GetList",
+				data: JSON.stringify({ list_id: "C420C604-A5F6-49DD-B769-7827478C9979" })
+			});
+			
+		*/
+		
+		$.ajax({
+			type: "POST",
+			contentType: "application/json",
+			url: "data/request-handler.php/GetList",
+			data: JSON.stringify({ list_id: "C420C604-A5F6-49DD-B769-7827478C9979" }),
+			success: function(data) {
+				console.log(data);
+			}
+		});
+		
+		$.ajax({
+			type: "POST",
+			contentType: "application/json",
+			url: "data/request-handler.php/GetUserLists",
+			success: function(data) {
+				console.log(data);
+			}
+		});
+		
+	})
+		
+	</script>
+</body>
+</html>
