@@ -1,8 +1,6 @@
-#shell
+#BevMo Gift List App
 
-a basic shell for static site builds using: 
+Test ground for ember.js-based gift list manager to add to the main BevMo site.
 
-+ html5boilerplate <http://html5boilerplate.com>
-+ compass <http://compass-style.org>
-+ bourbon <http://bourbon.io>
-+ bourbon neat <http://neat.bourbon.io>
++ runs on local mockup of inaccessible .NET server. Fun.
++ trying custom data adapter for vanilla jQuery ajax
